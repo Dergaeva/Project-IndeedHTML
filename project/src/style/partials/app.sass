@@ -1,0 +1,599 @@
+//varibles
+
+$small: 768px
+$tablet: 991px
+$large: 1200px
+
+
+$blue_color: #1c1a30
+$gray: #747474
+$light_gray: #7d7d7d
+$lighter_gray: #ccc
+$brown: #242424
+$dark_brown: #2e2e2e
+$green: #57c5a0
+$white: #fff
+
+/*mixins*/
+@mixin clearfix
+  &:before, &:after
+    content: ""
+    display: table
+
+  &:after
+    clear: both
+
+@mixin transform($transforms)
+  -moz-transform: $transforms
+  -o-transform: $transforms
+  -ms-transform: $transforms
+  -webkit-transform: $transforms
+  transform: $transforms
+
+@mixin transition($transition-property, $transition-time, $method)
+  -webkit-transition: $transition-property $transition-time $method
+  -moz-transition: $transition-property $transition-time $method
+  -ms-transition: $transition-property $transition-time $method
+  -o-transition: $transition-property $transition-time $method
+  transition: $transition-property $transition-time $method
+
+@font-face
+  font-family: 'Aller_Lt'
+  src: url('../../fonts/Aller_Lt.eot')
+  src: url('../../fonts/Aller_Lt.eot?#iefix') format('embedded-opentype')
+  src: url('../../fonts/Aller_Lt.woff') format('woff')
+  src: url('../../fonts/Aller_Lt.ttf') format('truetype')
+  font-weight: 300
+  font-style: normal
+
+@font-face
+  font-family: 'Aller'
+  src: url('../../fonts/Aller_Rg.eot')
+  src: url('../../fonts/Aller_Rg.eot?#iefix') format('embedded-opentype')
+  src: url('../../fonts/Aller_Rg.woff') format('woff')
+  src: url('../../fonts/Aller_Rg.ttf') format('truetype')
+  font-weight: 400
+  font-style: normal
+
+@font-face
+  font-family: 'Aller_Bd'
+  src: url('../../fonts/Aller_Bd.eot')
+  src: url('../../fonts/Aller_Bd.eot?#iefix') format('embedded-opentype')
+  src: url('../../fonts/Aller_Bd.woff') format('woff')
+  src: url('../../fonts/Aller_Bd.ttf') format('truetype')
+  font-weight: 700
+  font-style: normal
+
+//main style
+body
+  font-size: 16px
+  line-height: 1.4
+  color: $blue_color
+  font-family: 'Aller'
+
+a:hover
+  text-decoration: none
+
+hr
+  border: 0
+  left: 0
+  bottom: 50px
+  height: 4px
+  width: 100%
+  background-color: $blue_color
+  z-index: 1
+
+p
+  color: $gray
+  font-size: 0.75em
+  margin-bottom: 0
+  line-height: 1.4
+
+h1
+  font-size: 2.45em
+  color: $brown
+  font-family: 'Aller_Lt'
+  margin-top: 10px
+  margin-bottom: 10px
+
+h2
+  font-size: 1.25em
+  color: $brown
+  font-family: 'Aller_Lt'
+
+h3, .h3
+  font-size: 1.9em
+  color: $blue_color
+  text-transform: uppercase
+  padding-bottom: 30px
+
+h4
+  font-size: 0.875em
+  color: $blue_color
+  font-family: 'Aller_Bd'
+
+h5, .h5
+  font-size: 15px
+  color: $blue_color
+  display: block
+  margin-bottom: 10px
+
+a:focus, a:hover
+  color: $green
+  text-decoration: none
+
+article
+  font-size: 0.75em
+  color: $brown
+  line-height: 1.4
+  span
+    font-size: 0.75em
+    font-style: italic
+    display: block
+    padding-top: 15px
+
+input, textarea, select, button
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+input::-webkit-input-placeholder
+  color: $light_gray!important
+  font-style: italic
+
+input:focus::-webkit-input-placeholder
+  color: transparent!important
+  font-style: italic
+
+input::-moz-placeholder
+  color: $light_gray!important
+  font-style: italic
+
+input:focus::-moz-placeholder
+  color: transparent!important
+  font-style: italic
+
+input:-ms-input-placeholder
+  color: $light_gray!important
+  font-style: italic
+
+input:focus:-ms-input-placeholder
+  color: transparent!important
+  font-style: italic
+
+input:-moz-placeholder
+  color: $light_gray!important
+  font-style: italic
+
+input:focus:-moz-placeholder
+  color: transparent!important
+  font-style: italic
+
+input
+  font-size: 0.75em
+  padding-right: 50px
+  border: 0
+
+.form-control
+  border-radius: 0
+  background-color: $dark_brown
+  border: 0
+  &:focus
+    border-color: $green
+    box-shadow: none
+
+
+/*HEADER*/
+.navbar-header
+  float: none
+  background-color: $brown
+  .navbar-login
+    display: block
+    float: right
+
+  .navbar-form
+    float: right
+
+  .add-on .form-control
+    display: none
+    @media screen and (max-width: $small)
+        display: block
+
+.navbar-login
+  color: #7e7e7e
+  font-size: 0.7em
+  padding: 17px 25px
+  border-left: 1px solid $lighter_gray
+  border-right: 1px solid $lighter_gray
+
+.btn-open
+  background-color: transparent
+  color: $light_gray
+  &:hover
+    color: $white
+
+  &:focus
+    .search
+      display: block
+
+.navbar-default
+  background-color: $white
+  border: none
+  border-radius: 0
+  margin-bottom: 0
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover
+    color: #555
+    background: transparent
+
+.menu
+  .navbar-nav > li
+    border-left: 1px solid $lighter_gray
+    &:last-child
+      border-right: 1px solid $lighter_gray
+      @media screen and (max-width: $small)
+        border-right: 0
+
+    @media screen and (max-width: $small)
+      text-align: center
+      border-bottom: 1px solid $lighter_gray
+
+  .navbar-right
+    > li
+        padding-left: 18px
+        padding-right: 18px
+        @media screen and (max-width: $small)
+          width: 50%
+          float: right
+        i
+          padding-right: 8px
+        span
+          display: inline-block
+          background-color: #adadad
+          border-radius: 3px
+          color: #fafafa!important
+          width: 20px
+          height: 20px
+          text-align: center
+          line-height: 18px
+          font-size: 0.75em
+          font-family: 'Aller_Bd'
+        .cart > span
+                background-color: $green
+                color: $white
+
+  .navbar-nav
+    margin-bottom: -2px
+    @media screen and (max-width: $small)
+      margin-bottom: -7px
+
+/*slider*/
+.main
+  overflow: hidden
+
+.main-slider
+  position: relative
+  @include clearfix
+  height: 100%
+  min-height: 460px
+
+.st-panel
+  background: #efede8 url('../../img/lady.jpg') no-repeat center top
+
+  .shop-links
+    text-align: left
+    > a
+      background-color: $white
+      width: 40px
+      height: 40px
+      text-align: center
+      padding-top: 6px
+      margin-right: 2px
+
+.main-navigation-slider
+  .main-slider-nav
+    font-size: 1.125em
+    color: $white
+    text-align: center
+    margin: 0 auto
+    padding-top: 10px
+    line-height: 1.4
+    span
+      display: block
+      font-size: 0.75em
+      color: #adadad
+
+
+
+.verticalcenter
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -o-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+
+//portfolio
+.portfolio
+  padding: 20px 0
+  background-color: $brown
+  figure
+    position: relative
+    @media screen and (max-width: $tablet)
+      margin-bottom: 30px
+    img
+      width: 100%
+      height: auto
+    figcaption
+      @include transition(all,0.5s,ease-in-out)
+      position: absolute
+      text-align: center
+      padding: 20px 45px
+      background-color: rgba(0,0,0,.9)
+      color: $white
+      font-size: 1.55em
+      font-family: 'Aller_Lt'
+      text-transform: uppercase
+      left: 0
+      top: 0
+      transform: translate(15%,100%)
+      right: 0
+      bottom: 0
+      height: 70px
+      width: 80%
+      &:hover
+        color: $green
+      @media screen and (max-width: $large)
+        font-size: 1em
+      @media screen and (max-width: $tablet)
+        transform: translate(15%,60%)
+
+
+//shop
+.price, .sale, .stock
+  background-color: $green
+  width: 68px
+  height: 68px
+  color: $white
+  text-align: center
+  line-height: 68px
+  vertical-align: middle
+  font-size: 0.8em
+  display: block
+
+.sale
+  background-color: $brown
+
+.stock
+  background-color: #f27e4b
+  line-height: 1.4
+  padding-top: 15px
+
+.data
+  background-color: $green
+  font-size: .625em
+  width: 35px
+  height: 35px
+  line-height: 1
+  padding-top: 5px
+  text-align: center
+  color: $white
+  span
+    font-size: 13px
+
+.show
+  color: #bcb5a7
+  font-size: 14px
+  text-align: center
+  border: 1px solid #bcb5a7
+  padding: 6px 25px
+  float: right
+  font-family: 'Aller_Bd'
+  @media screen and (max-width: $small)
+    margin-top: 7px
+    margin-bottom: 7px
+
+.shop-links
+  display: block
+  overflow: hidden
+  text-align: center
+  margin: auto
+  > a
+    color: #6e6e6e
+    font-size: 20px
+    display: inline-block
+    margin-right: 15px
+    &:hover
+      color: $green
+
+.shop
+  background-color: #ebe7df
+  padding-bottom: 20px
+  .shop-links
+    display: none
+  h3
+    font-size: 1.55em
+    color: $brown
+    padding: 15px 20px
+    text-transform: none
+    font-family: 'Aller_Lt'
+    margin-top: 0
+
+  h4
+    color: $brown
+    text-transform: uppercase
+  figure
+    background-color: $white
+    position: relative
+    text-align: center
+    margin-bottom: 30px
+    figcaption
+      padding: 15px 20px 15px 95px
+      border-top: 1px solid $lighter_gray
+      text-align: center
+      span
+        color: $brown
+        font-size: 1.125em
+        display: inline-block
+    @media screen and (min-width: $tablet)
+        &:hover
+          .shop-links
+            display: block
+          figcaption > span
+            display: none
+
+
+    .price
+        position: absolute
+        bottom: 0
+        left: 10px
+    .sale, .stock
+      position: absolute
+      top: 0
+      right: 10px
+
+.news
+  position: relative
+  margin-top: 20px
+  padding-top: 30px
+  &:before
+    content: ""
+    height: 1px
+    background-color: #bcb5a7
+    position: absolute
+    width: 97%
+    left: 15px
+    top: 0
+    @media screen and (max-width: $small)
+      display: none
+  .news-box
+    background-color: #dfdbd4
+    padding: 10px 20px
+    article
+      padding-top: 20px
+    h4
+      margin-bottom: 0
+      font-family: 'Aller_Bd'
+    .data
+      float: left
+      margin-right: 10px
+    @media screen and (max-width: $tablet)
+      margin-bottom: 30px
+
+  .new
+    display: block
+
+.news-text
+  margin-bottom: 20px
+  h4
+    text-transform: none
+
+//footer
+.footer
+  background-color: $brown
+  color: $white
+  h4
+    color: $light_gray
+
+.foot-widget
+  padding: 60px 0 35px 0
+  .container
+    max-width: 860px
+    p
+      font-style: italic
+      color: #a4a4a4
+      span
+        color: $green
+.time
+  color: #c4c5bf
+  font-size: 0.75em
+  display: block
+  margin: 10px 0
+  font-style: italic
+
+.foot-backform
+  padding: 35px 0
+  border-top: 1px solid #1c1c1c
+  .container
+    max-width: 860px
+  input
+    width: 70%
+    float: left
+  button
+    background-color: $light_gray
+    border: $light_gray
+    border-radius: 0
+    width: 35px
+    height: 35px
+    i
+      font-size: 20px
+      color: $dark_brown
+
+
+.sth-butt
+  float: right
+  @media screen and (max-width: $small)
+    float: left
+  a
+    color: $light_gray
+    display: inline-block
+    background-color: $dark_brown
+    width: 35px
+    height: 35px
+    text-align: center
+    line-height: 35px
+    &:hover
+      color: $green
+
+.copyright
+  background-color: $dark_brown
+  padding: 30px 0
+
+.copyright-text
+  font-size: 0.75em
+  color: $light_gray
+
+.copyright-menu
+  float: right
+  @media screen and (max-width: $small)
+    float: none
+  a
+    color: $light_gray
+    font-size: 0.75em
+    display: inline-block
+    padding: 0 7px 0 0
+    &:before
+      content: "/"
+      padding-right: 7px
+    &:first-child:before
+      display: none
+    &:hover
+      color: $green
+      &:before
+        color: $light_gray
+
+
+@media screen and (max-width: $small)
+  .navbar-brand
+    float: none
+    > img
+      margin: 0 auto 20px auto
+  .navbar-header
+      .navbar-form
+        float: none
+        margin-right: 0
+        margin-left: 0
+      .navbar-login
+        display: initial
+        float: none
+        border: 0
+  .navbar-toggle
+      margin-top: -8px
+  .navbar-form
+    border: 0
+  .input-group.add-on
+    margin-left: 15px
+  .main-navigation-slider .main-slider-nav
+    font-size: 0.875em
